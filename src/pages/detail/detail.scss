@@ -1,0 +1,27 @@
+page-detail {
+}
+ion-header {
+	background-color: #80ff80;
+	text-decoration: none;
+    }
+    ion-content {
+    	background-image: url('assets/imgs/bg4.jpg');
+    	
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    }
+
+
+#ion
+{
+    float: right;
+     margin-right: 5%;
+    font-size: 25px;
+}
+
+#wraper{
+	height:auto;
+}
+.details{
+    text-align: center;
+}

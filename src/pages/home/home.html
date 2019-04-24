@@ -1,14 +1,92 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+<ion-header >
+  <ion-navbar transparent >
+    <span float-left padding-left="20px" style="position: absolute; top:10px;"><img src="assets/imgs/logo2.png" width="40px"/></span>
+    <ion-title text-center>
+      <span ion-text color="dark">Blockbuster</span>
     </ion-title>
+    <a (click)="presentPopover($event)" float-right padding-right="20px" style="position: absolute; top:18px; right:10px;"><ion-icon ios="ios-search" md="md-search" style="font-size: 27px; text-decoration: none; color: #004d00;"></ion-icon></a>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content >
+	<div id="wraper" padding >
+	    <ion-slides  spaceBetween="3px">
+			<ion-slide *ngFor="let n of newm" #slide (click)="goToDetails(n)">
+			   <img style="width: 100%;" src="https://image.tmdb.org/t/p/w500{{n.backdrop_path}}" alt="{{n.backdrop_path}}"/>
+			   <div class="newTitle">
+			    <span>
+			      <article class="card-title" >{{n.title}}<br></article>
+			      <article class="card-subtitle">Rateing:{{n.vote_average}}</article>
+			    </span>
+			   </div>
+			</ion-slide>
+		</ion-slides>	
+	</div>
+	<div class="card">
+        <div>
+		    <span ion-text class="title" padding>Popular Movies</span>  
+	        <a class="titleLink" float-right (click)="goToMovies(name)">see more</a>
+	    </div>
+		<ion-scroll scrollX="true" direction="x">
+	        <ion-card *ngFor="let n of name" >
+		        <a (click)="goToDetails(n)">
+			            <img  src="https://image.tmdb.org/t/p/w200{{n.poster_path}}" alt="{{n.poster_path}}"/>
+			     </a>  
+			     
+		        
+		    </ion-card>
+	    </ion-scroll> 
+	</div>
+
+
+
+	<div class="card">
+	    <div class="t_wrapper">
+		    <span ion-text class="title" padding>Popular Kids Movies</span>  
+	        <a class="titleLink" float-right (click)="goToMovies(topm)">see more</a>
+	    </div>
+		<ion-scroll scrollX="true" direction="x">
+	        <ion-card *ngFor="let n of topm">
+		            <a (click)="goToDetails(n)">
+			            <img  src="https://image.tmdb.org/t/p/w200{{n.poster_path}}" alt="{{n.poster_path}}"/>
+
+			        </a>
+		    </ion-card>
+	    </ion-scroll> 
+	</div>
+
+
+
+	<div >
+	    <div class="t_wrapper">
+		    <span ion-text class="title" padding>Now Playing</span>  
+	        <a class="titleLink" float-right (click)="goToMovies(nowplay)">see more</a>
+	    </div>
+		<ion-scroll scrollX="true" direction="x">
+	        <ion-card *ngFor="let n of nowplay">
+		            <a (click)="goToDetails(n)">
+			            <img  src="https://image.tmdb.org/t/p/w200{{n.poster_path}}" alt="{{n.poster_path}}"/>
+			        </a>
+		    </ion-card>
+	    </ion-scroll> 
+	</div>
+
+<!--cards-->
+	<!--<div>
+	    <div >
+	       <ion-title>
+	       <span ion-text color="dark">New Realesed</span>
+	       </ion-title>
+	    </div>
+	    <span *ngFor="let n of name">
+	    <ion-card class="card" float-left>
+	         <img  src="https://image.tmdb.org/t/p/w200{{n.poster_path}}" alt="{{n.poster_path}}"/>
+	        <ion-card-content>
+	            <ion-title>
+	                {{n.original_title}}
+	            </ion-title>
+	        </ion-card-content>
+	    </ion-card></span>
+	</div>  --> 
+  
 </ion-content>

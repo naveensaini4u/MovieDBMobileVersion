@@ -1,0 +1,15 @@
+<ion-content>
+    <ion-searchbar #search (input)="searchItems(search.value)"></ion-searchbar>
+
+
+    <div>
+	    <ion-list  *ngFor="let n of searchitem">
+			<ion-item transparent color="list"  (click)="goToDetails(n)">
+			    <ion-avatar item-start>
+			      <img  src="https://image.tmdb.org/t/p/w200{{n.poster_path}}" alt="{{n.poster_path}}"/>
+			    </ion-avatar>
+			    <h4>{{n.original_title}}</h4>
+			</ion-item>
+        </ion-list>
+	</div>
+</ion-content>

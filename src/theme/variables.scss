@@ -38,7 +38,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  list:       #b3ffb3,
+  top:        #80ff80        
 );
 
 
@@ -86,3 +88,13 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+ion-header {
+	background-color: #80ff80;
+	text-decoration: none;
+    }
+    ion-content {
+    	background-image: url('../../assets/imgs/bg4.jpg');
+    	
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    }
